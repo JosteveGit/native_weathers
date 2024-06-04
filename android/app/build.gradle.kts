@@ -64,7 +64,7 @@ dependencies {
     // Koin dependencies for dependency injection
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
-    implementation(libs.koin.androidx.viewmodel)
+//    implementation(libs.koin.androidx.viewmodel)
 
     // Retrofit dependencies for network requests
     implementation(libs.retrofit)

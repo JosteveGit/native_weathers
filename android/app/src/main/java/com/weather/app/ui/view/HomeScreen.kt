@@ -15,7 +15,7 @@ import com.weather.app.ui.theme.WeatherTheme
 import com.weather.app.ui.viewmodel.WeatherViewModel
 
 @Composable
-fun HomeScreen(navController: NavHostController, weatherViewModel: WeatherViewModel = viewModel()) {
+fun HomeScreen(navController: NavHostController) {
 
     val context = LocalContext.current
     val sharedPreferences = context.getSharedPreferences("weather", Context.MODE_PRIVATE)
