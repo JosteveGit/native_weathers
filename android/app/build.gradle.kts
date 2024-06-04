@@ -64,7 +64,6 @@ dependencies {
     // Koin dependencies for dependency injection
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
-//    implementation(libs.koin.androidx.viewmodel)
 
     // Retrofit dependencies for network requests
     implementation(libs.retrofit)
@@ -78,9 +77,14 @@ dependencies {
 
     // Testing dependencies
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.ui.test.junit4)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.junit.v114)
+    testImplementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.androidx.espresso.core.v350)
+
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 }
