@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android.v172)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.ui.test.junit4.android)
 
     // Testing dependencies
     testImplementation(libs.junit)
@@ -84,6 +85,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit.v114)
     testImplementation(libs.androidx.core.testing)
     androidTestImplementation(libs.androidx.espresso.core.v350)
+    androidTestImplementation(libs.mockito.core)
+    androidTestImplementation(libs.mockito.inline)
+    androidTestImplementation(libs.mockito.kotlin)
 
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)

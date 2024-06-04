@@ -30,7 +30,7 @@ fun WeatherDetailScreen(
     val sharedPreferences = context.getSharedPreferences("weather", Context.MODE_PRIVATE)
     val editor = sharedPreferences.edit()
 
-    val apiKey = "YOUR_API_KEY"
+    val apiKey = "eb05a02728f5edd17985006b4c42c07a"
 
     val weatherState by weatherViewModel.weatherState.collectAsState()
 

@@ -7,7 +7,6 @@ import com.weather.app.ui.viewmodel.WeatherState
 import com.weather.app.ui.viewmodel.WeatherViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.*
 import org.junit.Before
 import org.junit.Rule
@@ -27,7 +26,7 @@ class WeatherViewModelTest {
 
     private lateinit var viewModel: WeatherViewModel
 
-    private val testDispatcher = TestCoroutineDispatcher()
+    private val testDispatcher = UnconfinedTestDispatcher()
 
     @Before
     fun setUp() {
