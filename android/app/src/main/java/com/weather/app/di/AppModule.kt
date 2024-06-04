@@ -1,5 +1,8 @@
 package com.weather.app.di
 
+import com.weather.app.network.RetrofitInstance
+import com.weather.app.repository.WeatherRepository
+import com.weather.app.ui.viewmodel.WeatherViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
