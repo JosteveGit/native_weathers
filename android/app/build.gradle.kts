@@ -59,6 +59,28 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // AndroidX and Jetpack Compose dependencies
+    implementation(libs.androidx.core.ktx.v1101)
+    implementation(libs.ui)
+    implementation(libs.androidx.material)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.activity.compose.v172)
+    implementation(libs.androidx.navigation.compose)
+
+    // Koin dependencies for dependency injection
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.viewmodel)
+
+    // Retrofit dependencies for network requests
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Coroutine dependencies for background operations
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
