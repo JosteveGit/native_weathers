@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITextFieldDelegate {
     private var viewModel: WeatherViewModel!
     private var cancellables: Set<AnyCancellable> = []
     
@@ -14,6 +14,12 @@ class HomeViewController: UIViewController {
         
         viewModel = WeatherViewModel(repository: WeatherRepository())
         
+        // Set the delegate
+              cityTextField.delegate = self
+              
+              // Optionally set other properties
+              cityTextField.returnKeyType = .done
+        
         activityIndicator.isHidden = true
         if let favoriteCity = UserDefaults.standard.string(forKey: "favoriteCity") {
             cityTextField.text = favoriteCity
@@ -24,7 +30,12 @@ class HomeViewController: UIViewController {
         guard let city = cityTextField.text, !city.isEmpty else { return }
         let apiKey = "eb05a02728f5edd17985006b4c42c07a"
         
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
+
+        
         viewModel.getWeather(city: city, apiKey: apiKey)
+        
         
         viewModel.$weatherState
             .receive(on: RunLoop.main)
@@ -43,6 +54,11 @@ class HomeViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     private func showLoader() {

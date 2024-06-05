@@ -16,20 +16,24 @@ class WeatherDetailViewController: UIViewController {
     var weatherResponse: WeatherResponse?
     var city: String?
     
+    @IBOutlet weak var cityLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+
         if let weatherResponse = weatherResponse {
-            weatherDescriptionLabel.text = weatherResponse.weather.first?.description
-            temperatureLabel.text = "\(weatherResponse.main.temp) °C"
+            weatherDescriptionLabel.text = weatherResponse.weather.first?.description.capitalized
+            temperatureLabel.text = "\(Int(weatherResponse.main.temp - 273))°C"
+            cityLabel.text = city?.capitalized
         }
     }
     
     @IBAction func saveFavoriteCity(_ sender: Any) {
         
         if let favoriteCity = city {
-            UserDefaults.standard.set(favoriteCity, forKey: "favoriteCity")
-            let alert = UIAlertController(title: "Saved", message: "\(city) has been saved as favorite.", preferredStyle: .alert)
+            UserDefaults.standard.set(favoriteCity.capitalized, forKey: "favoriteCity")
+            let alert = UIAlertController(title: "Saved", message: "\(favoriteCity.capitalized) has been saved as favorite.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
         }
