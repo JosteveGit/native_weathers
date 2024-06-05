@@ -28,6 +28,11 @@ class WeatherViewModel(private val repository: WeatherRepository) : ViewModel() 
                 val response = repository.getWeather(city, apiKey)
                 _weatherState.value = WeatherState.Success(response)
             } catch (e: Exception) {
+                if (e.message?.contains("HTTP 404") == true) {
+                    _weatherState.value = WeatherState.Error("City not found")
+                    return@launch
+                }
+                // handle internet connection error
                 _weatherState.value =
                     WeatherState.Error("Failed to load weather data: ${e.message}")
             }

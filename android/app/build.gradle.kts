@@ -87,8 +87,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core.v350)
     androidTestImplementation(libs.mockito.core)
 
-//    testImplementation(libs.mockito.core.v3100)
-//    androidTestImplementation(libs.mockito.android)
+
     androidTestImplementation(libs.dexmaker.mockito)
 
 
