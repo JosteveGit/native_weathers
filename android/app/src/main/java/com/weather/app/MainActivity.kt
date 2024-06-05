@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -32,21 +33,23 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             WeatherTheme {
-              val navController = rememberNavController()
+                val navController = rememberNavController()
 
-                NavHost(navController, startDestination = "splash"){
-                    composable("splash"){
+                NavHost(navController, startDestination = "splash") {
+                    composable("splash") {
                         SplashScreen(navController)
                     }
-                    composable("home"){
+                    composable("home") {
                         HomeScreen(navController)
                     }
-                    composable("weather_detail/{city}"){
+                    composable("weather_detail/{city}") {
                         val city = it.arguments?.getString("city")
                         WeatherDetailScreen(city = city!!, navController = navController)
                     }
                 }
             }
         }
+
+
     }
 }

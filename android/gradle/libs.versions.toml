@@ -3,10 +3,10 @@ agp = "8.4.1"
 androidxJunit = "1.1.4"
 converterGson = "2.9.0"
 coreTesting = "2.2.0"
+dexmakerMockito = "2.28.1"
 espressoCoreVersion = "3.5.0"
 koinAndroid = "3.4.3"
 koinAndroidxCompose = "3.4.3"
-#koinAndroidxViewmodel = "2.2.3"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -18,10 +18,10 @@ kotlinxCoroutinesCoreVersion = "1.7.3"
 activityCompose = "1.9.0"
 materialVersion = "1.6.7"
 mockitoCore = "5.2.0"
+mockitoCoreVersion = "3.10.0"
 mockitoKotlin = "4.0.0"
 navigationComposeVersion = "2.7.7"
 retrofit = "2.9.0"
-uiTestJunit4 = "1.6.7"
 uiTestManifest = "1.6.7"
 uiTooling = "1.6.7"
 uiToolingPreviewVersion = "1.6.7"
@@ -40,22 +40,23 @@ androidx-navigation-compose-v253 = { module = "androidx.navigation:navigation-co
 androidx-ui-tooling-preview-v147 = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreviewVersion" }
 androidx-ui-v147 = { module = "androidx.compose.ui:ui", version.ref = "uiVersion" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+dexmaker-mockito = { module = "com.linkedin.dexmaker:dexmaker-mockito", version.ref = "dexmakerMockito" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
-#koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroidxViewmodel" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinStdlib" }
 kotlinx-coroutines-android-v172 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroidVersion" }
 kotlinx-coroutines-core-v172 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCoreVersion" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesAndroidVersion" }
+mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockitoCoreVersion" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+mockito-core-v3100 = { module = "org.mockito:mockito-core", version.ref = "mockitoCoreVersion" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoCore" }
 mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
 ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiTestManifest" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiTooling" }
 androidx-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "composeMaterial" }

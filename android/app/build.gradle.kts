@@ -86,8 +86,11 @@ dependencies {
     testImplementation(libs.androidx.core.testing)
     androidTestImplementation(libs.androidx.espresso.core.v350)
     androidTestImplementation(libs.mockito.core)
-    androidTestImplementation(libs.mockito.inline)
-    androidTestImplementation(libs.mockito.kotlin)
+
+//    testImplementation(libs.mockito.core.v3100)
+//    androidTestImplementation(libs.mockito.android)
+    androidTestImplementation(libs.dexmaker.mockito)
+
 
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
