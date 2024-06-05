@@ -32,21 +32,21 @@ class WeatherIntegrationTest {
     fun testWeatherFlow() {
         composeTestRule.waitUntil(
             condition = {
-                composeTestRule.onAllNodesWithText("Enter city name").fetchSemanticsNodes()
+                composeTestRule.onAllNodesWithText("Enter city").fetchSemanticsNodes()
                     .isNotEmpty()
             },
             timeoutMillis = 5000
         )
 
-        composeTestRule.onNodeWithText("Enter city name").performTextInput("London")
-        composeTestRule.onNodeWithText("Get Weather").performClick()
+        composeTestRule.onNodeWithTag("cityTextField").performTextInput("London")
+        composeTestRule.onNodeWithText("Continue").performClick()
 
         composeTestRule.waitUntil {
-            composeTestRule.onAllNodesWithText("City: London").fetchSemanticsNodes()
+            composeTestRule.onAllNodesWithText("London").fetchSemanticsNodes()
                 .isNotEmpty()
         }
 
-        composeTestRule.onNodeWithText("Description").isDisplayed()
-        composeTestRule.onNodeWithText("Temperature").isDisplayed()
+        composeTestRule.onNodeWithText("London").isDisplayed()
+        composeTestRule.onNodeWithText("Save as favorite").isDisplayed()
     }
 }
