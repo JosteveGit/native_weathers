@@ -3,26 +3,15 @@ package com.weather.app.ui.view
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.*
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,8 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.weather.app.R
 import com.weather.app.ui.theme.WeatherTheme
+import com.weather.app.ui.theme.always42808A
+import com.weather.app.ui.theme.appFont
 import com.weather.app.ui.view.components.BackButton
 import com.weather.app.ui.view.components.CustomButton
 import com.weather.app.ui.view.components.GradientText
@@ -57,16 +47,13 @@ fun WeatherDetailScreen(
         weatherViewModel.getWeather(city, apiKey)
     }
 
-    val customFontFamily = FontFamily(
-        Font(R.font.custom)
-    )
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF42808A))
-            .padding(16.dp)
+            .background(always42808A)
+            .padding(18.dp)
     ) {
         when (weatherState) {
             is WeatherState.Loading -> {
@@ -86,9 +73,7 @@ fun WeatherDetailScreen(
                 Column(
                     horizontalAlignment = Alignment.Start,
                     verticalArrangement = Arrangement.Top,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp)
+
                 ) {
                     Spacer(modifier = Modifier.height(24.dp))
                     BackButton {
@@ -108,14 +93,14 @@ fun WeatherDetailScreen(
                             fontWeight = FontWeight.W600,
                             fontSize = 30.sp,
                             modifier = Modifier.fillMaxWidth(),
-                            fontFamily = customFontFamily,
+                            fontFamily = appFont,
                             textAlign = TextAlign.Center
                         )
                         Spacer(modifier = Modifier.height(5.dp))
                         Text(
                             text = description,
                             color = Color.White,
-                            fontFamily = customFontFamily,
+                            fontFamily = appFont,
                             fontSize = 16.sp,
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center
@@ -126,14 +111,13 @@ fun WeatherDetailScreen(
                     Spacer(modifier = Modifier.height(50.dp))
                     CustomButton(
                         text = "Save as favorite",
-                        fontFamily = customFontFamily
                     ) {
                         editor.putString("favoriteCity", newCity)
                         editor.apply()
                         Toast.makeText(context, "$newCity saved as favorite", Toast.LENGTH_SHORT)
                             .show()
                     }
-                    Spacer(modifier = Modifier.height(50.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
 
@@ -158,16 +142,13 @@ fun WeatherDetailScreen(
                             .fillMaxWidth()
                             .weight(1f)
                     ) {
-                        Text(message, color = Color.White, fontFamily = customFontFamily)
+                        Text(message, color = Color.White, fontFamily = appFont)
                     }
                 }
             }
         }
     }
 }
-
-
-
 
 
 

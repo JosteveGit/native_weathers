@@ -16,13 +16,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.weather.app.R
+import com.weather.app.ui.theme.always74a3a9
 
 @Composable
 fun GradientText(
-    text: String
+    text: String,
+    fontSize: Int = 100
 ) {
     val gradient = Brush.linearGradient(
-        colors = listOf(Color.White, Color(0xFF74a3a9)),
+        colors = listOf(Color.White, always74a3a9),
         start = Offset(0f, 0f),
         end = Offset(0f, 400f)
     )
@@ -33,7 +35,7 @@ fun GradientText(
 
     Text(
         text = text,
-        fontSize = 130.sp,
+        fontSize = fontSize.sp,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),

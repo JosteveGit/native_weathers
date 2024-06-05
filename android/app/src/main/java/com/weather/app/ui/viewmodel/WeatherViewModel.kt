@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.weather.app.model.WeatherResponse
 import com.weather.app.repository.WeatherRepository
+import com.weather.app.utils.isInternetAvailable
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import android.content.Context
 import kotlinx.coroutines.launch
 
 sealed class WeatherState {

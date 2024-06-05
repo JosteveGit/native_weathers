@@ -16,11 +16,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.weather.app.ui.theme.always74a3a9
+import com.weather.app.ui.theme.appFont
 
 @Composable
 fun CustomButton(
     text: String,
-    fontFamily: FontFamily,
     onClick: () -> Unit
 ) {
     Box(
@@ -29,14 +30,14 @@ fun CustomButton(
             .fillMaxWidth()
             .clip(RoundedCornerShape(24.dp))
             .height(48.dp)
-            .background(Color(0xFF74a3a9))
+            .background(always74a3a9)
             .clickable { onClick() }
     ) {
         Text(
             text = text,
             color = Color.White,
             fontWeight = FontWeight.Bold,
-            fontFamily = fontFamily,
+            fontFamily = appFont,
             style = TextStyle(
                 fontWeight = FontWeight.Bold
             )

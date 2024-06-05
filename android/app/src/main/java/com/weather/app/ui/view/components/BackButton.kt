@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.weather.app.ui.theme.always74a3a9
 
 @Composable
 fun BackButton(
@@ -24,7 +25,7 @@ fun BackButton(
         modifier = Modifier
             .size(48.dp)
             .clip(CircleShape)
-            .background(Color(0xFF74a3a9))
+            .background(always74a3a9)
             .clickable { onClick() }
     ) {
         Icon(
