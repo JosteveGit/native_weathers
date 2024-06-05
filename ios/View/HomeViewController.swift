@@ -8,7 +8,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,11 +19,11 @@ class HomeViewController: UIViewController {
             cityTextField.text = favoriteCity
         }
     }
-
+    
     @IBAction func getWeatherTapped(_ sender: Any) {
         guard let city = cityTextField.text, !city.isEmpty else { return }
         let apiKey = "eb05a02728f5edd17985006b4c42c07a"
-
+        
         viewModel.getWeather(city: city, apiKey: apiKey)
         
         viewModel.$weatherState
@@ -44,17 +44,17 @@ class HomeViewController: UIViewController {
             }
             .store(in: &cancellables)
     }
-
+    
     private func showLoader() {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
     }
-
+    
     private func hideLoader() {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
-
+    
     private func handleSuccess(response: WeatherResponse) {
         guard response.weather.first != nil else {
             showError(message: "Invalid weather data")
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
         }
         performSegue(withIdentifier: "showWeatherDetail", sender: response)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showWeatherDetail",
            let weatherDetailVC = segue.destination as? WeatherDetailViewController,
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
             weatherDetailVC.city = cityTextField.text
         }
     }
-
+    
     private func showError(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))

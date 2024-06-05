@@ -4,14 +4,14 @@ import Combine
 
 class WeatherViewModel: ObservableObject {
     @Published private(set) var weatherState: WeatherState = .loading
-
+    
     private let repository: WeatherRepository
     private var cancellables: Set<AnyCancellable> = []
-
+    
     init(repository: WeatherRepository) {
         self.repository = repository
     }
-
+    
     func getWeather(city: String, apiKey: String) {
         self.weatherState = .loading
         repository.getWeather(city: city, apiKey: apiKey) { [weak self] result in

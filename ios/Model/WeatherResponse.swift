@@ -1,9 +1,3 @@
-//
-//  WeatherResponse.swift
-//  Weather
-//
-//  Created by Josteve Adekanbi on 05/06/2024.
-//
 import Foundation
 
 struct WeatherResponse: Codable {
