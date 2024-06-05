@@ -22,6 +22,12 @@
 		19633CA22C1059EF0077586D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633CA12C1059EF0077586D /* WeatherViewModel.swift */; };
 		19633CA72C1080740077586D /* WeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633CA62C1080740077586D /* WeatherViewModelTests.swift */; };
 		19633CA92C1081060077586D /* WeatherRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633CA82C1081060077586D /* WeatherRepositoryTests.swift */; };
+		19633CAA2C1083990077586D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633CA12C1059EF0077586D /* WeatherViewModel.swift */; };
+		19633CAB2C10839A0077586D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633CA12C1059EF0077586D /* WeatherViewModel.swift */; };
+		19633CAD2C1083A20077586D /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633C992C1059610077586D /* WeatherRepository.swift */; };
+		19633CAE2C1083A30077586D /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633C992C1059610077586D /* WeatherRepository.swift */; };
+		19633CAF2C1083A70077586D /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633C972C1059520077586D /* WeatherResponse.swift */; };
+		19633CB02C1083A80077586D /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19633C972C1059520077586D /* WeatherResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -339,6 +345,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19633CA92C1081060077586D /* WeatherRepositoryTests.swift in Sources */,
+				19633CAF2C1083A70077586D /* WeatherResponse.swift in Sources */,
+				19633CAA2C1083990077586D /* WeatherViewModel.swift in Sources */,
+				19633CAE2C1083A30077586D /* WeatherRepository.swift in Sources */,
 				19633C7E2C1058150077586D /* WeatherTests.swift in Sources */,
 				19633CA72C1080740077586D /* WeatherViewModelTests.swift in Sources */,
 			);
@@ -349,6 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19633C882C1058150077586D /* WeatherUITests.swift in Sources */,
+				19633CB02C1083A80077586D /* WeatherResponse.swift in Sources */,
+				19633CAB2C10839A0077586D /* WeatherViewModel.swift in Sources */,
+				19633CAD2C1083A20077586D /* WeatherRepository.swift in Sources */,
 				19633C8A2C1058150077586D /* WeatherUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

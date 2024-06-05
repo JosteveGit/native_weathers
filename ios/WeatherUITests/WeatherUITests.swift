@@ -6,36 +6,51 @@
 //
 
 import XCTest
+import Combine
+import Foundation
 
-final class WeatherUITests: XCTestCase {
+@testable import Weather
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class IntegrationTests: XCTestCase {
+    private var viewModel: WeatherViewModel!
+    private var repository: WeatherRepository!
+    private var cancellables: Set<AnyCancellable>!
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    override func setUp() {
+        super.setUp()
+        repository = WeatherRepository()
+        viewModel = WeatherViewModel(repository: repository)
+        cancellables = []
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        viewModel = nil
+        repository = nil
+        cancellables = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testIntegration() {
+        let expectation = self.expectation(description: "Weather fetched successfully")
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
+        viewModel.$weatherState
+            .dropFirst()
+            .sink { state in
+                switch state {
+                case .success(let response):
+                    XCTAssertNotNil(response.weather.first?.description)
+                    XCTAssertNotNil(response.main.temp)
+                    expectation.fulfill()
+                case .error:
+                    XCTFail("Expected success, got failure")
+                default:
+                    break
+                }
             }
-        }
+            .store(in: &cancellables)
+
+        viewModel.getWeather(city: "London", apiKey: "eb05a02728f5edd17985006b4c42c07a")
+
+        wait(for: [expectation], timeout: 10.0)
     }
 }

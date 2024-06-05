@@ -12,6 +12,14 @@ import Foundation
 class WeatherRepository {
     private let baseURL = "https://api.openweathermap.org/data/2.5/weather"
     
+    private let urlSession: URLSession
+
+    
+    init(urlSession: URLSession = .shared) {
+          self.urlSession = urlSession
+      }
+      
+    
     func getWeather(city: String, apiKey: String, completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
         let urlString = "\(baseURL)?q=\(city)&appid=\(apiKey)"
         guard let url = URL(string: urlString) else {
@@ -19,7 +27,7 @@ class WeatherRepository {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = urlSession.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return

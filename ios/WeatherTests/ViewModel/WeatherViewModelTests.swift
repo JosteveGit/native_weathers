@@ -49,7 +49,7 @@ class WeatherViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        viewModel.getWeather(city: "London", apiKey: "dummyApiKey")
+        viewModel.getWeather(city: "London", apiKey: "KEY")
 
         wait(for: [expectation], timeout: 2.0)
     }
@@ -72,7 +72,7 @@ class WeatherViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        viewModel.getWeather(city: "London", apiKey: "dummyApiKey")
+        viewModel.getWeather(city: "London", apiKey: "FAKE KEY")
 
         wait(for: [expectation], timeout: 2.0)
     }

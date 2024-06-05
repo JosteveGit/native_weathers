@@ -1,3 +1,4 @@
+
 import XCTest
 @testable import Weather
 
@@ -23,7 +24,7 @@ class WeatherRepositoryTests: XCTestCase {
         let weatherResponse = WeatherResponse(weather: [Weather(description: "Sunny")], main: Main(temp: 25.0))
         mockURLSession.nextData = try? JSONEncoder().encode(weatherResponse)
 
-        repository.getWeather(city: "London", apiKey: "dummyApiKey") { result in
+        repository.getWeather(city: "London", apiKey: "KEY") { result in
             switch result {
             case .success(let response):
                 XCTAssertEqual(response.weather.first?.description, "Sunny")
@@ -42,7 +43,7 @@ class WeatherRepositoryTests: XCTestCase {
 
         mockURLSession.nextError = NSError(domain: "TestError", code: -1, userInfo: nil)
 
-        repository.getWeather(city: "London", apiKey: "dummyApiKey") { result in
+        repository.getWeather(city: "London", apiKey: "FAKE KEY") { result in
             switch result {
             case .success:
                 XCTFail("Expected failure, got success")
@@ -71,6 +72,8 @@ class MockURLSession: URLSession {
 
 class MockURLSessionDataTask: URLSessionDataTask {
     var completionHandler: (() -> Void)?
+    
+    
 
     override func resume() {
         completionHandler?()
