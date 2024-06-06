@@ -1,5 +1,3 @@
-# Project Title
-
 This project is a cross-platform mobile application developed for both Android and iOS platforms. 
 
 ## Technologies Used
