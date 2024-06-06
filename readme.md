@@ -14,6 +14,9 @@ Both versions of the project follow the Model-View-ViewModel (MVVM) architectura
 
 I also adhered to the SOLID principles to ensure that the code is easy to understand, maintain, and expand upon.
 
+I also added unit and integration tests to ensure that the code is working as expected.
+
+
 ## Screenshots
 
 Here are some screenshots application:
